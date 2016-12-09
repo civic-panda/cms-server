@@ -1,0 +1,64 @@
+{
+  "name": "generic-name",
+  "version": "0.0.1",
+  "description": "Act On This CMS",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "6.9.2",
+    "npm": "4.0.3"
+  },
+  "keywords": [],
+  "scripts": {
+    "start": "npm run keystone",
+    "dev": "npm run server",
+    "keystone": "node keystone.js",
+    "keystoneD": "cross-env NODE_ENV=development nodemon --debug keystone.js",
+    "inspector": "node-inspector --hidden node_modules/",
+    "server": "npm run inspector& npm run keystoneD"
+  },
+  "author": "Matt Casey",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://actonthis.org",
+  "dependencies": {
+    "cross-env": "2.0.1",
+    "express": "4.14.0",
+    "file-loader": "0.9.0",
+    "keystone": "4.0.0-beta.3",
+    "keystone-email": "1.0.5",
+    "restful-keystone": "^0.3.0",
+    "serve-favicon": "2.3.0"
+  },
+  "devDependencies": {
+    "babel": "6.3.13",
+    "babel-core": "6.3.17",
+    "babel-eslint": "6.0.0",
+    "babel-loader": "6.2.5",
+    "babel-plugin-transform-runtime": "6.15.0",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-es2015-native-modules": "6.9.4",
+    "babel-preset-stage-0": "6.5.0",
+    "babel-register": "6.14.0",
+    "dotenv": "2.0.0",
+    "eslint": "3.5.0",
+    "eslint-config-airbnb": "11.1.0",
+    "eslint-loader": "1.5.0",
+    "eslint-plugin-import": "1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.2.0",
+    "file-loader": "0.9.0",
+    "jade": "1.11.0",
+    "lodash": "4.6.0",
+    "node-inspector": "0.12.8",
+    "nodemon": "1.10.2",
+    "rimraf": "2.5.4",
+    "webpack": "^2.1.0-beta"
+  }
+}
