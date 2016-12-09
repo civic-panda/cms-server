@@ -33,9 +33,7 @@
     "keystone": "4.0.0-beta.3",
     "keystone-email": "1.0.5",
     "restful-keystone": "^0.3.0",
-    "serve-favicon": "2.3.0"
-  },
-  "devDependencies": {
+    "serve-favicon": "2.3.0",
     "babel": "6.3.13",
     "babel-core": "6.3.17",
     "babel-eslint": "6.0.0",
@@ -60,5 +58,7 @@
     "nodemon": "1.10.2",
     "rimraf": "2.5.4",
     "webpack": "^2.1.0-beta"
+  },
+  "devDependencies": {
   }
 }
