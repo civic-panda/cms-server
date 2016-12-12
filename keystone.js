@@ -6,6 +6,8 @@ if (typeof process.env.NODE_ENV === 'undefined' ||
 }
 
 const keystone = require('keystone');
+const Email = require('keystone-email')
+const engine = require('express-handlebars');
 
 keystone.init({
   name: 'Act On This CMS',
@@ -14,7 +16,8 @@ keystone.init({
   less: 'dist',
   static: 'dist',
   views: './template/',
-  'view engine': 'jade',
+  'custom engine': engine({ extname: '.hbs' }),
+  'view engine': 'hbs',
   'auto update': true,
   mongo: process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/act-on-this',
 
@@ -40,3 +43,29 @@ keystone.import('models/');
 keystone.set('routes', require('./server'));
 
 keystone.start();
+
+// Email.send(
+// 'test.hbs',
+// {
+//   root: './emails/',
+//   engine: engine({ extname: '.hbs' }),
+//   transport: 'mailgun',
+//   apiKey: 'key-4a0a48c33d7c0e618e744fab818b2c7d',
+//   domain: 'mg.actonthis.org'
+// },
+// {},
+// {
+//   subject: 'Test Email',
+//   to: 'mdc09321@gmail.com',
+//   from: {
+//     name: 'Tester',
+//     email: 'hello@actonthis.org'
+//   }
+// },
+// function (err, result) {
+//   if (err) {
+//     console.error('🤕 Mailgun test failed with error:\n', err);
+//   } else {
+//     console.log('📬 Successfully sent Mailgun test with result:\n', result);
+//   }
+// });
