@@ -33,5 +33,5 @@ Issue.relationship({ ref: 'Task', path: 'tasks', refPath: 'issue' });
  * Registration
  */
 
-Issue.defaultColumns = 'name';
+Issue.defaultColumns = 'name, image';
 Issue.register();

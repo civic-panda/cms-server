@@ -68,5 +68,5 @@ Task.add({
  * Registration
  */
 
-Task.defaultColumns = 'name';
+Task.defaultColumns = 'name, issue, template';
 Task.register();
