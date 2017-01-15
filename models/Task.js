@@ -1091,6 +1091,10 @@ Task.add({
   issue: { type: Types.Relationship, ref: 'Issue', initial: true, required: true },
   image: { label: 'Image', type: Types.CloudinaryImage, autoCleanup: true, initial: false, required: false },
   tags: { type: Types.TextArray, required: false },
+  summary: {
+    label: 'Summary',
+    type: Types.Text,
+  },
   location: {
     label: 'leave blank to use user\'s location',
     type: Types.Location,
