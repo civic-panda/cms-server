@@ -1047,17 +1047,17 @@ const genericMultipleFields = {
     label: 'Generic Template Steps',
     type: Types.TextArray,
     required: false,
-    dependsOn: { template: ['GenericMultiple'] }
+    dependsOn: { template: 'GenericMultiple' }
   },
 }
 
 const genericSingleFields = {
-  steps: {
+  step: {
     label: 'Generic Template Step',
     type: Types.Html,
     wysiwyg: true,
     required: false,
-    dependsOn: { template: ['GenericSingle'] }
+    dependsOn: { template: 'GenericSingle' }
   },
 }
 
