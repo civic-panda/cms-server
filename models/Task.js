@@ -999,6 +999,16 @@ const committees = [
 
 const Task = new keystone.List('Task');
 
+const committeeField = {
+  committee: {
+    type: Types.Select,
+    dependsOn: { template: 'CallCommittee' },
+    options: committees.map(committee => ({
+      label: 'committee',
+      value: committee.id, label: committee.name
+    }))
+  },
+};
 const subcommitteeFields = {};
 
 committees.forEach((committee) => {
@@ -1010,7 +1020,61 @@ committees.forEach((committee) => {
       value: subcommittee.id, label: subcommittee.name
     }))
   }
-})
+});
+
+const callScriptFields = {
+  requestedAction: {
+    label: 'Requested Action',
+    type: String,
+    dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] }
+  },
+  petitionScript: {
+    label: 'Petition Script',
+    type: Types.Html,
+    wysiwyg: true,
+    dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] }
+  },
+  thankYouScript: {
+    label: 'Thank You Script',
+    type: Types.Html,
+    wysiwyg: true,
+    dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] }
+  }
+}
+
+const genericMultipleFields = {
+  steps: {
+    label: 'Generic Template Steps',
+    type: Types.TextArray,
+    required: false,
+    dependsOn: { template: ['GenericMultiple'] }
+  },
+}
+
+const genericSingleFields = {
+  steps: {
+    label: 'Generic Template Step',
+    type: Types.Html,
+    wysiwyg: true,
+    required: false,
+    dependsOn: { template: ['GenericSingle'] }
+  },
+}
+
+// const templates = {
+//   CallCongress: {
+
+//   },
+//   CallCommittee: {
+
+//   },
+//   CallSenate: {
+
+//   },
+//   CallHouse: {
+
+//   },
+// }
 
 Task.add({
 	name: { type: Types.Text, required: true, index: true },
@@ -1045,21 +1109,18 @@ Task.add({
       { value: 'CallCongress', label: 'Call your congressmen and congresswomen' },
       { value: 'CallCommittee', label: 'Call a committee or subcommittee' },
       { value: 'CallSenate', label: 'Call your senators' },
-      { value: 'CallHouse', label: 'Call your representatives' }
+      { value: 'CallHouse', label: 'Call your representatives' },
+      { value: 'GenericSingle', label: 'Generic with Single Step' },
+      { value: 'GenericMultiple', label: 'Generic with Multiple Step' }
     ]
   },
-  templateProps: Object.assign({
-    committee: { type: Types.Select, dependsOn: { template: 'CallCommittee' }, options: committees.map(committee => ({
-      label: 'committee',
-      value: committee.id, label: committee.name
-    }))},
-  },
-  subcommitteeFields,
-  {
-    requestedAction: { label: 'Requested Action', type: String, dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] } },
-    petitionScript: { label: 'Petition Script', type: Types.Html, wysiwyg: true, dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] } },
-    thankYouScript: { label: 'Thank You Script', type: Types.Html, wysiwyg: true, dependsOn: { template: ['CallSenate', 'CallCommittee', 'CallHouse', 'CallCongress'] } }
-  })
+  templateProps: Object.assign(
+    committeeField,
+    subcommitteeFields,
+    callScriptFields,
+    genericSingleFields,
+    genericMultipleFields,
+  ),
 });
 
 // Provide access to Keystone
