@@ -10,7 +10,8 @@ const Issue = new keystone.List('Issue');
 
 Issue.add({
 	name: { type: Types.Text, required: true, index: true },
-  brandColor: { abel: 'Brand Accent Color', type: Types.Color, initial: false, required: false },
+	callToAction: { label: 'Call To Action', type: Types.Text, required: true, index: true },
+  brandColor: { label: 'Brand Accent Color', type: Types.Color, initial: false, required: false },
   logo: { type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
   image: { label: 'Hero Image', type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
   placeholderImage: { label: 'Task Default Image', type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
