@@ -12,7 +12,8 @@ Issue.add({
 	name: { type: Types.Text, required: true, index: true },
   brandColor: { abel: 'Brand Accent Color', type: Types.Color, initial: false, required: false },
   logo: { type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
-  image: { type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
+  image: { label: 'Hero Image', type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
+  placeholderImage: { label: 'Task Default Image', type: Types.CloudinaryImage, autoCleanup : true, initial: false, required: false },
   summary: { type: Types.Html, wysiwyg: true, initial: false, required: false },
   facts: { label: 'Key Facts (bullets)', type: Types.Html, wysiwyg: true, initial: false, required: false },
   reading: { label: 'Additional Reading (links)', type: Types.Html, wysiwyg: true, initial: false, required: false }

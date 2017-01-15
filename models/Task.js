@@ -1089,6 +1089,7 @@ const helpfulTipsField = {
 Task.add({
 	name: { type: Types.Text, required: true, index: true },
   issue: { type: Types.Relationship, ref: 'Issue', initial: true, required: true },
+  image: { label: 'Image', type: Types.CloudinaryImage, autoCleanup: true, initial: false, required: false },
   tags: { type: Types.TextArray, required: false },
   location: {
     label: 'leave blank to use user\'s location',
