@@ -1061,6 +1061,16 @@ const genericSingleFields = {
   },
 }
 
+const helpfulTipsField = {
+  tips: {
+    label: 'Helpful Tips',
+    type: Types.Html,
+    wysiwyg: true,
+    required: false,
+    dependsOn: { template: ['GenericSingle', 'GenericMultiple'] }
+  },
+}
+
 // const templates = {
 //   CallCongress: {
 
@@ -1120,6 +1130,7 @@ Task.add({
     callScriptFields,
     genericSingleFields,
     genericMultipleFields,
+    helpfulTipsField,
   ),
 });
 
